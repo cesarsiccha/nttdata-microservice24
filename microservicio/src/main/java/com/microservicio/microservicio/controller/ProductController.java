@@ -1,8 +1,8 @@
 package com.microservicio.microservicio.controller;
 
 
-import com.microservicio.microservicio.model.entity.Producto;
-import com.microservicio.microservicio.service.ProductoService;
+import com.microservicio.microservicio.model.entity.Product;
+import com.microservicio.microservicio.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,19 +13,17 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.lang.invoke.MethodHandles;
-import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/producto")
-public class ProductoController {
+public class ProductController {
     @Autowired
-    private ProductoService productoService;
+    private ProductService productService;
 
     @GetMapping("/listado")
-    public Flux<Producto> listar(){
-        return productoService.findAll();
+    public Flux<Product> listar(){
+        return productService.findAll();
     }
 
     private static final Logger LOGGER= LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -33,35 +31,35 @@ public class ProductoController {
 
     @PostMapping("/nuevo")
     @ResponseStatus(HttpStatus.OK)
-    public Mono<Producto> createProduct(@RequestBody Producto producto){
+    public Mono<Product> createProduct(@RequestBody Product product){
         LOGGER.info("Hizo la peticion de nuevo");
 
-        return productoService.save(producto);
+        return productService.save(product);
     }
 
     @GetMapping("/listado/{idProducto}")
-    public Flux<Producto> findPersonById(@PathVariable String idProducto){
-        return productoService.findPersonById(idProducto);
+    public Flux<Product> findProductById(@PathVariable String idProducto){
+        return productService.findProductById(idProducto);
     }
 
     @GetMapping("/listado2/{idProducto}")
-    public Flux<Producto> findProductById2(@PathVariable String idProducto){
-        return productoService.buscarporId(idProducto);
+    public Flux<Product> findProductById2(@PathVariable String idProducto){
+        return productService.buscarporId(idProducto);
     }
 
 
     @DeleteMapping("/eliminar/{idProducto}")
-    public Mono<Void> deleteProduct(@RequestBody Producto producto){
+    public Mono<Void> deleteProduct(@RequestBody Product product){
         LOGGER.info("Hizo la peticion de eliminar por id");
-        return productoService.eliminar(producto);
+        return productService.eliminar(product);
     }
 
     @PutMapping("/actualizar/{idProducto}")
-    public Mono<Producto> updateProduct(@RequestBody Producto producto,@PathVariable(value = "idProducto") String idProducto){
+    public Mono<Product> updateProduct(@RequestBody Product product, @PathVariable(value = "idProducto") String idProducto){
 
         LOGGER.info("Hizo la peticion de actualizar");
-        producto.setIdProducto(idProducto);
-        return productoService.update(producto);
+        product.setIdProducto(idProducto);
+        return productService.update(product);
 
     }
 }

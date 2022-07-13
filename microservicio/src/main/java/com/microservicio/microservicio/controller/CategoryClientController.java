@@ -1,67 +1,62 @@
 package com.microservicio.microservicio.controller;
 
-import com.microservicio.microservicio.model.entity.Persona;
-import com.microservicio.microservicio.model.entity.TipoCliente;
-import com.microservicio.microservicio.repository.TipoClienteRepository;
-import com.microservicio.microservicio.service.TipoClienteService;
+import com.microservicio.microservicio.model.entity.CategoryClient;
+import com.microservicio.microservicio.service.CategoryClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.lang.invoke.MethodHandles;
-import java.util.List;
-import java.util.Optional;
 
 @Slf4j
 @RestController
 @RequestMapping("/api/tipocliente")
-public class TipoClienteController {
+public class CategoryClientController {
 
     @Autowired
-    private TipoClienteService tipoClienteService;
+    private CategoryClientService categoryClientService;
 
     private static final Logger LOGGER= LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 
     @GetMapping("/listado")
     @ResponseStatus(HttpStatus.OK)
-    public Flux<TipoCliente> getAllClients(){
+    public Flux<CategoryClient> getAllClients(){
         LOGGER.info("Hizo la peticion de listado");
-        return tipoClienteService.findAll();
+        return categoryClientService.findAll();
     }
 
 
     @PostMapping("/nuevo")
     @ResponseStatus(HttpStatus.OK)
-    public Mono<TipoCliente> createClient(@RequestBody TipoCliente tipocliente){
+    public Mono<CategoryClient> createClient(@RequestBody CategoryClient tipocliente){
         LOGGER.info("Hizo la peticion de nuevo");
 
-        return tipoClienteService.save(tipocliente);
+        return categoryClientService.save(tipocliente);
     }
 
     @GetMapping("/listado/{idTipoCliente}")
-        public Flux<TipoCliente> findPersonById(@PathVariable String idTipoCliente){
-            return tipoClienteService.findPersonById(idTipoCliente);
+        public Flux<CategoryClient> findPersonById(@PathVariable String idTipoCliente){
+            return categoryClientService.findPersonById(idTipoCliente);
     }
 
     @DeleteMapping("/eliminar/{idTipoCliente}")
-    public Mono<Void> deleteClient(@RequestBody TipoCliente tipoCliente){
+    public Mono<Void> deleteClient(@RequestBody CategoryClient categoryClient){
         LOGGER.info("Hizo la peticion de eliminar por id");
-        return tipoClienteService.eliminar(tipoCliente);
+        return categoryClientService.eliminar(categoryClient);
     }
 
     @PutMapping("/actualizar/{idTipoCliente}")
-    public Mono<TipoCliente> updateClient(@RequestBody TipoCliente tipocliente,@PathVariable(value = "idTipoCliente") String idTipoCliente){
+    public Mono<CategoryClient> updateClient(@RequestBody CategoryClient tipocliente, @PathVariable(value = "idTipoCliente") String idTipoCliente){
 
         LOGGER.info("Hizo la peticion de actualizar");
         tipocliente.setIdTipoCliente(idTipoCliente);
-        return tipoClienteService.update(tipocliente);
+        return categoryClientService.update(tipocliente);
 
     }
 }

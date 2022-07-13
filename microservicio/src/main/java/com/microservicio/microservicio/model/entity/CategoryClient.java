@@ -5,13 +5,13 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("Cliente")
+@Document("TipoCliente")
 @Data
 @NoArgsConstructor
-public class Cliente {
+public class CategoryClient {
+
     @Id
-    private String idCliente;
-    private Persona idPersona;
-    private String cuentaCliente;
+    private String idTipoCliente;
+    private String descripcion;
     private String estado;
 }

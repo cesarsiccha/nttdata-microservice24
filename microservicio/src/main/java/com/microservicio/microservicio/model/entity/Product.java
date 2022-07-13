@@ -5,13 +5,14 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("TipoProducto")
+@Document("Producto")
 @Data
 @NoArgsConstructor
-public class TipoProducto {
-
+public class Product {
     @Id
-    private String idTipoProducto;
+    private String idProducto;
+    private String nombreProducto;
     private String descripcionProducto;
+    private CategoryProduct idCategoryProduct;
     private String estado;
 }
