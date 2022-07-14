@@ -11,7 +11,7 @@ public interface ClientService {
 
     Mono<Client> update(Client client);
 
-    Flux<Client> findPersonById(String id);
+    Flux<Client> findClientById(String id);
 
     Mono<Void> eliminar(Client client);
 }

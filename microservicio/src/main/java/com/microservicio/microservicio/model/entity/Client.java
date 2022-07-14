@@ -5,7 +5,10 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Document("Cliente")
@@ -14,12 +17,10 @@ import javax.validation.constraints.Size;
 public class Client {
     @Id
     private String idClient;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "La categoria no puede ser vacia")
     private CategoryClient idCategoryClient;
-    @NotEmpty(message = "el nombre no puede ser vacio")
-    private String nombresClient;
-    @NotEmpty(message = "el apellido no puede ser vacio")
-    private String apellidosClient;
-    @Size( min = 8 , max = 8, message = "El dni debe tener 8 digitos")
-    private String dniClient;
+    @NotEmpty(message = "el titular no puede ser vacio")
+    private HolderPerson holderPerson;
     private String estado;
 }

@@ -9,18 +9,19 @@ import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-@Document("Producto")
+@Document("Titular")
 @Data
 @NoArgsConstructor
-public class Product {
+public class HolderPerson {
     @Id
-    private String idProducto;
-    @NotEmpty(message = "el nombre de producto no puede ser vacio")
-    private String nombreProducto;
-    private String descripcionProducto;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @NotNull(message = "La categoria no puede ser vacia")
-    private CategoryProduct idCategoryProduct;
+    private String idHolderPerson;
+    @NotEmpty(message = "el nombre no puede ser vacio")
+    private String nombresHolderPerson;
+    @NotEmpty(message = "el apellido no puede ser vacio")
+    private String apellidosHolderPerson;
+    @Size( min = 8 , max = 8, message = "El dni debe tener 8 digitos")
+    private String dniHolderPerson;
     private String estado;
 }

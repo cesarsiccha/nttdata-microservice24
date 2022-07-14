@@ -11,9 +11,12 @@ public interface DetailProductService {
 
     Mono<DetailProduct> update(DetailProduct detailProduct);
 
-    Flux<DetailProduct> findPersonById(String id);
 
     Mono<Void> eliminar(DetailProduct detailProduct);
 
-    Flux<DetailProduct> buscarporId(String idDetalleProducto);
+    Flux<DetailProduct> findbyIdDetailProduct(String idDetalleProducto);
+
+    Mono<DetailProduct> setMaintment(String idProduct,String idClient);
+
+    Mono<DetailProduct> setMovement(String idProduct,String idClient);
 }

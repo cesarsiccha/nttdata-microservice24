@@ -43,7 +43,7 @@ public class ClientController {
 
     @GetMapping("/listado/{idClient}")
     public Flux<Client> getClient(@PathVariable String idClient){
-            return clientService.findPersonById(idClient);
+            return clientService.findClientById(idClient);
 
     }
 

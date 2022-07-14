@@ -6,7 +6,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
 @Document("DetalleProductoCliente")
@@ -16,7 +19,11 @@ public class DetailProduct {
 
     @Id
     private String idDetalleProducto;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "La categoria no puede ser vacia")
     private Client idClient;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @NotNull(message = "La categoria no puede ser vacia")
     private Product idProduct;
     @NotEmpty(message = "el numero de cuenta no puede ser vacio")
     private String numeroCuenta;

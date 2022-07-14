@@ -28,7 +28,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Flux<Client> findPersonById(String idClient) {
+    public Flux<Client> findClientById(String idClient) {
         return clientRepository.findAll().filter(x->x.getIdClient().equals(idClient));
     }
 

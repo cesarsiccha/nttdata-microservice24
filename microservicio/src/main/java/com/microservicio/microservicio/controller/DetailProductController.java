@@ -38,14 +38,10 @@ public class DetailProductController {
         return detailProductService.save(detailProduct);
     }
 
-    @GetMapping("/listado/{idDetalleProducto}")
-    public Flux<DetailProduct> findPersonById(@PathVariable String idDetalleProducto){
-        return detailProductService.findPersonById(idDetalleProducto);
-    }
 
     @GetMapping("/listado2/{idDetalleProducto}")
-    public Flux<DetailProduct> findProductById2(@PathVariable String idDetalleProducto){
-        return detailProductService.buscarporId(idDetalleProducto);
+    public Flux<DetailProduct> findProductById(@PathVariable String idDetalleProducto){
+        return detailProductService.findbyIdDetailProduct(idDetalleProducto);
     }
 
 

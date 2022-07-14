@@ -32,18 +32,24 @@ public class DetailProductServiceImpl implements DetailProductService {
     }
 
     @Override
-    public Flux<DetailProduct> findPersonById(String idDetalleProducto) {
-        return detailProductRepository.findAll().filter(x->x.getIdDetalleProducto().equals(idDetalleProducto));
-    }
-
-    @Override
     public Mono<Void> eliminar(DetailProduct detailProduct){
 
         return detailProductRepository.delete(detailProduct);
     }
 
-    public Flux<DetailProduct> buscarporId(String idDetalleProducto){
-
-        return detailProductRepository.buscarporIdDetalleProducto(idDetalleProducto);
+    @Override
+    public Flux<DetailProduct> findbyIdDetailProduct(String idDetalleProducto) {
+        return detailProductRepository.findIdDetailProduct(idDetalleProducto) ;
     }
+
+    @Override
+    public Mono<DetailProduct> setMaintment(String idProduct, String idClient) {
+        return detailProductRepository.setMaintenance(idProduct,idClient);
+    }
+
+    @Override
+    public Mono<DetailProduct> setMovement(String idProduct, String idClient) {
+        return detailProductRepository.setMovement(idProduct,idClient);
+    }
+
 }
