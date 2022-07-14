@@ -4,16 +4,7 @@ spring:
   data:
       mongodb:
         uri: mongodb://localhost:27017/Proyecto1MongoDB
-jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.H2Dialect
-    properties:
-      hibernate:
-        show_sql: true
-        use_sql_comments: false
-        format_sql: false
+
 eureka:
   client:
     serviceUrl:
