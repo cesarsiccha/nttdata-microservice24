@@ -5,7 +5,7 @@ spring:
       mongodb:
         user: 
         password: 
-        uri: mongodb://localhost:8082/proyecto2
+        uri: mongodb://localhost:27017/Proyecto1MongoDB
 eureka:
   client:
     serviceUrl:
