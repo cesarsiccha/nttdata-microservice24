@@ -30,7 +30,7 @@ public class CustomerController {
     // -------------------Retrieve All Customers--------------------------------------------
 
     @GetMapping
-    public ResponseEntity<List<Customer>> listAllCustomers(@RequestParam(name = "IdCategoryCustomer" , required = false) String IdCategoryCustomer ) {
+    public ResponseEntity<List<Customer>> listAllCustomers(@RequestParam(name = "IdCategoryCustomer" , required = false) Long IdCategoryCustomer ) {
         List<Customer> customers =  new ArrayList<>();
         if (null ==  IdCategoryCustomer) {
             customers = customerService.findCustomerAll();
@@ -97,7 +97,7 @@ public class CustomerController {
     @DeleteMapping(value = "/{idCustomer}")
     public ResponseEntity<Customer> deleteCustomer(@PathVariable("idCustomer") Long idCustomer) {
         log.info("Fetching & Deleting Customer with id {}", idCustomer);
-
+//
         Customer customer = customerService.getCustomer(idCustomer);
         if ( null == customer ) {
             log.error("Unable to delete. Customer with id {} not found.", idCustomer);
