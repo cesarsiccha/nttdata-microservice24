@@ -3,8 +3,8 @@ server:
 spring:
   data:
       mongodb:
-        user: nttdata
-        password: nttd4t4
+        user: 
+        password: 
         uri: mongodb://localhost:8082/proyecto2
 eureka:
   client:
