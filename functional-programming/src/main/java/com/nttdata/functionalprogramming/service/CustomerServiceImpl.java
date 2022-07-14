@@ -3,10 +3,14 @@ package com.nttdata.functionalprogramming.service;
 import com.nttdata.functionalprogramming.model.CategoryCustomer;
 import com.nttdata.functionalprogramming.model.Customer;
 import com.nttdata.functionalprogramming.repository.CustomerRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
+@Service
 public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
@@ -60,7 +64,7 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer getCustomer(String idCustomer) {
+    public Customer getCustomer(Long idCustomer) {
         return  customerRepository.findById(idCustomer).orElse(null);
     }
 }

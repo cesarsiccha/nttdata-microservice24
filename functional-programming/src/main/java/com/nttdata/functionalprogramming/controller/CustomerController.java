@@ -53,7 +53,7 @@ public class CustomerController {
     // -------------------Retrieve Single Customer------------------------------------------
 
     @GetMapping(value = "/{idCustomer}")
-    public ResponseEntity<Customer> getCustomer(@PathVariable("idCustomer") String idCustomer) {
+    public ResponseEntity<Customer> getCustomer(@PathVariable("idCustomer") Long idCustomer) {
         log.info("Fetching Customer with id {}", idCustomer);
         Customer customer = customerService.getCustomer(idCustomer);
         if (  null == customer) {
@@ -66,11 +66,9 @@ public class CustomerController {
     // -------------------Create a Customer-------------------------------------------
 
     @PostMapping
-    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer, BindingResult result) {
+    public ResponseEntity<Customer> createCustomer(@Valid @RequestBody Customer customer) {
         log.info("Creating Customer : {}", customer);
-        if (result.hasErrors()){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
+
 
         Customer customerDB = customerService.createCustomer (customer);
 
@@ -80,7 +78,7 @@ public class CustomerController {
     // ------------------- Update a Customer ------------------------------------------------
 
     @PutMapping(value = "/{idCustomer}")
-    public ResponseEntity<?> updateCustomer(@PathVariable("idCustomer") String idCustomer, @RequestBody Customer customer) {
+    public ResponseEntity<?> updateCustomer(@PathVariable("idCustomer") Long idCustomer, @RequestBody Customer customer) {
         log.info("Updating Customer with id {}", idCustomer);
 
         Customer currentCustomer = customerService.getCustomer(idCustomer);
@@ -97,7 +95,7 @@ public class CustomerController {
     // ------------------- Delete a Customer-----------------------------------------
 
     @DeleteMapping(value = "/{idCustomer}")
-    public ResponseEntity<Customer> deleteCustomer(@PathVariable("idCustomer") String idCustomer) {
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable("idCustomer") Long idCustomer) {
         log.info("Fetching & Deleting Customer with id {}", idCustomer);
 
         Customer customer = customerService.getCustomer(idCustomer);

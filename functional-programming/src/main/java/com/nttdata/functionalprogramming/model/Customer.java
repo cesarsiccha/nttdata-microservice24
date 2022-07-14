@@ -2,22 +2,22 @@ package com.nttdata.functionalprogramming.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Column;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-@Document("Cliente")
+@Table(name="customers")
 @Data
 @NoArgsConstructor
 
 public class Customer {
 
     @Id
-    private String idCustomer;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCustomer;
 
     @NotEmpty(message = "El nombre no puede ser vacío")
     @Column(name="first_name", nullable=false)

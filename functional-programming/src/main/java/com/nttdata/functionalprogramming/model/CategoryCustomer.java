@@ -3,12 +3,13 @@ package com.nttdata.functionalprogramming.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+
 
 import javax.persistence.Column;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-@Document("CategoryClient")
+@Table(name="CategoryCustomer")
 @Data
 @NoArgsConstructor
 public class CategoryCustomer {

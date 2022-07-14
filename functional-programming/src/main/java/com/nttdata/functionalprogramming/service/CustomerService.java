@@ -12,5 +12,5 @@ public interface CustomerService {
     public Customer createCustomer(Customer customer);
     public Customer updateCustomer(Customer customer);
     public Customer deleteCustomer(Customer customer);
-    public  Customer getCustomer(String id);
+    public  Customer getCustomer(Long id);
 }
