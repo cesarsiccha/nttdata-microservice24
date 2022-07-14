@@ -38,5 +38,7 @@ public class Customer implements Serializable {
     @Column(unique=true, nullable=false)
     private String emailCustomer;
 
+    private CategoryCustomer categoryCustomer;
+
     private String state;
 }
