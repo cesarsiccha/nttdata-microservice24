@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 public class Client {
     @Id
-    private String idCliente;
+    private String idClient;
     private CategoryClient idCategoryClient;
     @NotEmpty(message = "el nombre no puede ser vacio")
     private String nombresClient;

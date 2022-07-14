@@ -41,13 +41,13 @@ public class ClientController {
         return clientService.save(client);
     }
 
-    @GetMapping("/listado/{idCliente}")
-    public Flux<Client> getClient(@PathVariable String idCliente){
-            return clientService.findPersonById(idCliente);
+    @GetMapping("/listado/{idClient}")
+    public Flux<Client> getClient(@PathVariable String idClient){
+            return clientService.findPersonById(idClient);
 
     }
 
-    @DeleteMapping("/eliminar/{idCliente}")
+    @DeleteMapping("/eliminar/{idClient}")
     public Mono<Void> deleteClient(@RequestBody Client client){
         LOGGER.info("Hizo la peticion de eliminar por id");
         return clientService.eliminar(client);
@@ -55,10 +55,10 @@ public class ClientController {
     }
 
     @PutMapping("/actualizar/{idCliente}")
-    public Client updateClient(@RequestBody Client client, @PathVariable(value = "idCliente") String idCliente){
+    public Client updateClient(@RequestBody Client client, @PathVariable(value = "idClient") String idClient){
 
         LOGGER.info("Hizo la peticion de actualizar");
-        client.setIdCliente(idCliente);
+        client.setIdClient(idClient);
         clientService.save(client);
 
         return client;
