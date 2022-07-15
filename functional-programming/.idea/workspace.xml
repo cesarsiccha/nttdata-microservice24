@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7a22a7f9-d91a-414c-9401-b2b4a1555baa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/MicroservicioApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/MicroservicioApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/repository/DetailProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/repository/DetailProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/service/DetailProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/service/DetailProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/service/DetailProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../microservicio/src/main/java/com/microservicio/microservicio/service/DetailProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

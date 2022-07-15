@@ -10,6 +10,6 @@ public interface DetailProductRepository extends ReactiveCrudRepository<DetailPr
     @Query("{'idDetalleProducto':?0}")
     Flux<DetailProduct> findIdDetailProduct(String idDetalleProducto);
 
-    Mono<DetailProduct> setMaintenance(String idProduct,String idClient);
-    Mono<DetailProduct> setMovement(String idProduct,String idClient);
+//    Mono<DetailProduct> setMaintenance(String idProduct,String idClient);
+//    Mono<DetailProduct> setMovement(String idProduct,String idClient);
 }

@@ -16,7 +16,7 @@ public interface DetailProductService {
 
     Flux<DetailProduct> findbyIdDetailProduct(String idDetalleProducto);
 
-    Mono<DetailProduct> setMaintment(String idProduct,String idClient);
-
-    Mono<DetailProduct> setMovement(String idProduct,String idClient);
+//    Mono<DetailProduct> setMaintment(String idProduct,String idClient);
+//
+//    Mono<DetailProduct> setMovement(String idProduct,String idClient);
 }

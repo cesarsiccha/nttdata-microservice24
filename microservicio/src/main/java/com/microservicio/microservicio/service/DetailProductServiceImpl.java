@@ -42,14 +42,14 @@ public class DetailProductServiceImpl implements DetailProductService {
         return detailProductRepository.findIdDetailProduct(idDetalleProducto) ;
     }
 
-    @Override
-    public Mono<DetailProduct> setMaintment(String idProduct, String idClient) {
-        return detailProductRepository.setMaintenance(idProduct,idClient);
-    }
-
-    @Override
-    public Mono<DetailProduct> setMovement(String idProduct, String idClient) {
-        return detailProductRepository.setMovement(idProduct,idClient);
-    }
+//    @Override
+//    public Mono<DetailProduct> setMaintment(String idProduct, String idClient) {
+//        return detailProductRepository.setMaintenance(idProduct,idClient);
+//    }
+//
+//    @Override
+//    public Mono<DetailProduct> setMovement(String idProduct, String idClient) {
+//        return detailProductRepository.setMovement(idProduct,idClient);
+//    }
 
 }
