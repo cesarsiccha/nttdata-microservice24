@@ -1,10 +1,5 @@
 server:
   port: 8084
-spring:
-  data:
-      mongodb:
-        uri: mongodb://nttdata:nttd4t4@localhost:27017/Proyecto1MongoDB
-
 eureka:
   client:
     serviceUrl:
